@@ -16,7 +16,7 @@ if(isset($_POST["sifra"])){
 		unset($_POST["uvjet"]);
 	}
 	$izraz=$veza->prepare("update kategorija set naziv=:naziv, 
-							slika=:slika, caption=:caption where sifra=:sifra");
+							slika=:slika, opis=:opis where sifra=:sifra");
 	$izraz->execute($_POST);
 	header("location: index.php?uvjet=" . $uvjet);
 }
