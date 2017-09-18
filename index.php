@@ -18,7 +18,7 @@ if(isset($_SESSION["logiran"])){
 				<div class="callout" align="center">
 					<p>
 						<ul class="ul">
-							<h3>Dobro došli na stranicu Webshop APP</h3>
+							<h3>Dobro došli na stranicu <?php echo $naslovAplikacije; ?></h3>
 							<li>da biste započeli s radom idite na <br/><a href="<?php echo $putanjaAPP;  ?>javno/login.php" class="button round">Login</a></li>
 							<li>ili ako nemate račun idite na <br/><a href="<?php echo $putanjaAPP;  ?>javno/registracija.php" class="button round">Registraciju</a></li>
 						</br>
