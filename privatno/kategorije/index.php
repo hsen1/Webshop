@@ -15,10 +15,8 @@ $uvjet = isset($_GET["uvjet"]) ? $_GET["uvjet"] : "";
 					<div class="grid-x grid-padding-x">
 						<div class="large-auto cell">
 							<form method="GET">
-								<input type="text" placeholder="dio naziva" name="uvjet" 
-								value="<?php echo $uvjet; ?>"/>	
+								<input type="text" placeholder="dio naziva" name="uvjet" value="<?php echo $uvjet; ?>"/>	
 							</form>
-						
 						</div>
 						<div class="large-auto cell">
 							<a href="unos.php" class="success button expanded"><i title="Dodaj" class="step fi-page-add size-48"></i> Dodaj</a></th>

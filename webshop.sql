@@ -2,6 +2,9 @@ drop database if exists webshop;
 create database webshop default character set utf8;
 use webshop;
 
+#byethost
+#alter database default character set utf8;
+
 #tablice
 create table operater(
 sifra			int not null primary key auto_increment,
@@ -22,7 +25,8 @@ email			varchar (100) not null,
 lozinka			char (32) not null,
 adresa			varchar (255) not null,
 mjesto			varchar (255) not null,
-postanskiBroj	int (5) not null
+postanskiBroj	int (5) not null,
+uloga			varchar(50) not null default 'kupac'
 );
 
 create table proizvod(
@@ -113,9 +117,9 @@ insert into proizvod values
 ('', 'Proizvod 5', 'proizvod 5', 2900.00, '', '', '', 3, 3, 1);
 
 insert into kupac values
-('', 'Ivan', 'Marić', '', '', 'kupac1@gmail.com', md5('kupac1'), 'Vladimira Nazora 117', 'Đakovo', 31400),
-('', 'Marko', 'Živković', '', '', 'kupac2@gmail.com', md5('kupac2'), 'Marka Marulića 18', 'Osijek', 31000),
-('', 'Natko', 'Đikić', '', '', 'kupac3@gmail.com', md5('kupac3'), 'Vladimira Nazora 10', 'Zagreb', 10000);
+('', 'Ivan', 'Marić', '', '', 'kupac1@gmail.com', md5('kupac1'), 'Vladimira Nazora 117', 'Đakovo', 31400, default),
+('', 'Marko', 'Živković', '', '', 'kupac2@gmail.com', md5('kupac2'), 'Marka Marulića 18', 'Osijek', 31000, default),
+('', 'Natko', 'Đikić', '', '', 'kupac3@gmail.com', md5('kupac3'), 'Vladimira Nazora 10', 'Zagreb', 10000, default);
 
 insert into dostava values
 ('', 'besplatna', 0.00),

@@ -36,7 +36,10 @@
       	if(isset($_SESSION["logiran"]) && $_SESSION["logiran"]->uloga==="korisnik"): ?>
         <li><a href="<?php echo $putanjaAPP;  ?>privatno/operateri/profil.php"><i title="O nama" class="step fi-wrench size-48"></i> Profil</a></li>
         <?php endif; ?>
-      
+       <?php 
+      	if(isset($_SESSION["logiran"]) && $_SESSION["logiran"]->uloga==="kupac"): ?>
+        <li><a href="<?php echo $putanjaAPP;  ?>privatno/kupci/profil.php"><i title="O nama" class="step fi-wrench size-48"></i> Profil</a></li>
+        <?php endif; ?>
     </ul>
   </div>
   <div class="top-bar-right">
