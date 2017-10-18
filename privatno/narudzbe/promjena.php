@@ -54,6 +54,8 @@ if(isset($_POST["odustani"])){
 							<input name="datum" id="datum" value="<?php echo date("Y-m-d",strtotime($narudzba->datum)); ?>" type="date"/>
 							
 							<label for="status">Status</label>
+							<input name="status" id="status" value="<?php echo $narudzba->status; ?>" type="text" />
+							<!--
 							<select name="status">
 								<?php if($narudzba->status==""): ?>
 										<option value="0">Odaberite dostavu</option>
@@ -61,11 +63,11 @@ if(isset($_POST["odustani"])){
 										<?php
 										endif;
 										?>
-								<option value="u obradi">u obradi</option>
-								<option value="u dostavi">u dostavi</option>
-								<option value="isporučeno">isporučeno</option>
+								<option value="1">u obradi</option>
+								<option value="2">u dostavi</option>
+								<option value="3">isporučeno</option>
 							</select>
-							
+							-->
 							<label for="napomena">Napomena</label>
 							<input name="napomena" id="napomena" value="<?php echo $narudzba->napomena; ?>" type="text" />
 							
