@@ -11,8 +11,7 @@ if(isset($_POST["naziv"])){
 		}
 	}
 	if(count($greske)==0){
-		$izraz=$veza->prepare("insert into dobavljac (oib, naziv, ziroracun, email, adresa, mjesto, postanskiBroj) 
-		values (:oib, :naziv, :ziroracun, :email, :adresa, :mjesto, :postanskiBroj)");
+		$izraz=$veza->prepare("insert into kategorija (naziv, slika, opis) values (:naziv, :slika, :opis)");
 		$unioRedova = $izraz->execute($_POST);
 	}
 }
@@ -26,13 +25,10 @@ if(isset($_POST["naziv"])){
 		<?php include_once '../../predlosci/izbornik.php'; ?>
 		<div class="row">
 			<div class="grid-x grid-padding-x">
-				<div class="cell large-4 large-offset-4">
+				<div class="large-4 large-offset-4">
 					<form method="POST">
 						<fieldset class="fieldset">
 							<legend>Unosni podaci</legend>
-														
-							<label for="oib">OIB</label>
-							<input name="oib" id="oib" type="number" />
 							
 							<label id="lnaziv" for="naziv">Naziv</label>
 							<input <?php 
@@ -42,20 +38,11 @@ if(isset($_POST["naziv"])){
 							?> 
 							name="naziv" id="naziv" value="<?php echo isset($_POST["naziv"]) ? $_POST["naziv"] : "" ?>" type="text" />
 							
-							<label for="ziroracun">Žiroračun</label>
-							<input name="ziroracun" id="ziroracun" type="text" />
+							<label for="slika">Slika</label>
+							<input name="slika" id="slika" type="text" />
 							
-							<label for="email">Email</label>
-							<input name="email" id="email" type="text" />
-							
-							<label for="adresa">Adresa</label>
-							<input name="adresa" id="adresa" type="text" />
-							
-							<label for="mjesto">Mjesto</label>
-							<input name="mjesto" id="mjesto" type="text" />
-							
-							<label for="postanskiBroj">Poštanski broj</label>
-							<input name="postanskiBroj" id="postanskiBroj" type="number" />
+							<label for="opis">Opis</label>
+							<input name="opis" id="opis" type="text" />
 							
 							<input type="submit" class="button expanded" value="Dodaj"/>
 							

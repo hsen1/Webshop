@@ -25,7 +25,7 @@ if(isset($_POST["naziv"])){
 		<?php include_once '../../predlosci/izbornik.php'; ?>
 		<div class="row">
 			<div class="grid-x grid-padding-x">
-				<div class="large-4 large-offset-4">
+				<div class="cell large-4 large-offset-4">
 					<form method="POST">
 						<fieldset class="fieldset">
 							<legend>Unosni podaci</legend>

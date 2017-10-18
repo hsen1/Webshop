@@ -13,3 +13,7 @@ function provjeraUloga($uloga){
 		exit;
 	}
 }
+
+function randomLozinka($l = 8) {
+    return substr(md5(uniqid(mt_rand(), true)), 0, $l);
+}

@@ -1,6 +1,12 @@
 <?php include_once '../../konfiguracija.php';  provjeraLogin(); ?>
 <?php 
 $uvjet = isset($_GET["uvjet"]) ? $_GET["uvjet"] : "";
+$stranica=1;
+if(isset($_GET["stranica"])){
+	if ($_GET["stranica"]>0){
+		$stranica=$_GET["stranica"];
+	}
+}
 ?>
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
@@ -18,12 +24,27 @@ $uvjet = isset($_GET["uvjet"]) ? $_GET["uvjet"] : "";
 								<input type="text" placeholder="dio naziva" name="uvjet" 
 								value="<?php echo $uvjet; ?>"/>	
 							</form>
-						
+						</div>
+						<?php 
+							$uvjetUpit="%" . $uvjet . "%";
+							$izraz=$veza->prepare("select count(*) from dobavljac where naziv like :uvjet");
+							$izraz->execute(array("uvjet"=>$uvjetUpit));
+							$ukupnoDobavljaca=$izraz->fetchColumn();
+							$ukupnoStranica=ceil($ukupnoDobavljaca/$rezultataPoStranici);
+							if($stranica>$ukupnoStranica){
+								$stranica=$ukupnoStranica;
+							}					
+						?>
+						<div class="cell large-2" style="text-align: center;">Ukupno 
+							<?php echo $ukupnoDobavljaca; ?><br />
 						</div>
 						<div class="large-auto cell">
 							<a href="unos.php" class="success button expanded"><i title="Dodaj" class="step fi-page-add size-48"></i> Dodaj</a>
 						</div>
 					</div>
+				</div>
+				<div>
+					<?php include '../../predlosci/paginator.php'; ?>
 				</div>
 					<table>
 						<thead>
@@ -41,7 +62,7 @@ $uvjet = isset($_GET["uvjet"]) ? $_GET["uvjet"] : "";
 						<tbody>
 							<?php 
 							$izraz = $veza->prepare("select * from dobavljac
-							where naziv like :uvjet");
+							where naziv like :uvjet limit " . (($rezultataPoStranici*$stranica)-$rezultataPoStranici) . ", " . $rezultataPoStranici);
 							$uvjet="%" . $uvjet . "%";
 							$izraz->execute(array("uvjet"=>$uvjet));
 							$rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
@@ -72,6 +93,8 @@ $uvjet = isset($_GET["uvjet"]) ? $_GET["uvjet"] : "";
 							<?php endforeach; ?>
 						</tbody>
 					</table>
+				<div>
+					<?php include '../../predlosci/paginator.php'; ?>
 				</div>
 			</div>
 		</div>

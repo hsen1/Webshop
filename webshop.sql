@@ -19,8 +19,6 @@ create table kupac(
 sifra			int (6) not null primary key auto_increment,
 ime				varchar (50) not null,
 prezime			varchar (50) not null,
-naziv			varchar (100),
-oib				char (11),
 email			varchar (100) not null,
 lozinka			char (32) not null,
 adresa			varchar (255) not null,
@@ -34,7 +32,6 @@ sifra			int (6) not null primary key auto_increment,
 naziv			varchar (50) not null,
 opis			varchar (1000) not null,
 cijena			decimal (18,2) not null,
-dobavljacSifra	varchar (30),
 brand			varchar (50),
 garancija		int (2) default 0,
 kolicina		int (4) not null default 0,
@@ -110,16 +107,16 @@ insert into kategorija values
 ('', 'Memorija', '', '');
 
 insert into proizvod values
-('', 'Proizvod 1', 'proizvod 1', 1500.00, '', '', 24, 10, 1, 1),
-('', 'Proizvod 2', 'proizvod 2', 500.00, '', '', 12, 20, 1, 2),
-('', 'Proizvod 3', 'proizvod 3', 280.00, '', '', 6, 48, 2, 2),
-('', 'Proizvod 4', 'proizvod 4', 195.00, '', '', 36, 11, 3, 3),
-('', 'Proizvod 5', 'proizvod 5', 2900.00, '', '', '', 3, 3, 1);
+('', 'Proizvod 1', 'proizvod 1', 1500.00, '', 24, 10, 1, 1),
+('', 'Proizvod 2', 'proizvod 2', 500.00, '', 12, 20, 1, 2),
+('', 'Proizvod 3', 'proizvod 3', 280.00, '', 6, 48, 2, 2),
+('', 'Proizvod 4', 'proizvod 4', 195.00, '', 36, 11, 3, 3),
+('', 'Proizvod 5', 'proizvod 5', 2900.00, '', '', 3, 3, 1);
 
 insert into kupac values
-('', 'Ivan', 'Marić', '', '', 'kupac1@gmail.com', md5('kupac1'), 'Vladimira Nazora 117', 'Đakovo', 31400, default),
-('', 'Marko', 'Živković', '', '', 'kupac2@gmail.com', md5('kupac2'), 'Marka Marulića 18', 'Osijek', 31000, default),
-('', 'Natko', 'Đikić', '', '', 'kupac3@gmail.com', md5('kupac3'), 'Vladimira Nazora 10', 'Zagreb', 10000, default);
+('', 'Ivan', 'Marić', 'kupac1@gmail.com', md5('kupac1'), 'Vladimira Nazora 117', 'Đakovo', 31400, default),
+('', 'Marko', 'Živković', 'kupac2@gmail.com', md5('kupac2'), 'Marka Marulića 18', 'Osijek', 31000, default),
+('', 'Natko', 'Đikić', 'kupac3@gmail.com', md5('kupac3'), 'Vladimira Nazora 10', 'Zagreb', 10000, default);
 
 insert into dostava values
 ('', 'besplatna', 0.00),

@@ -20,8 +20,11 @@
           <li><a href="<?php echo $putanjaAPP;  ?>privatno/kategorije/index.php">Kategorije</a></li>
           <li><a href="<?php echo $putanjaAPP;  ?>privatno/kupci/index.php">Kupci</a></li>
           <li><a href="<?php echo $putanjaAPP;  ?>privatno/dobavljaci/index.php">Dobavljači</a></li>
-          <li><a href="#">Dostava</a></li>
+          <li><a href="<?php echo $putanjaAPP;  ?>privatno/proizvodi/index.php">Proizvodi</a></li>
+          <li><a href="<?php echo $putanjaAPP;  ?>privatno/narudzbe/index.php">Narudžbe</a></li>
+          <!-- <li><a href="#">Dostava</a></li> -->
           <li><a href="<?php echo $putanjaAPP;  ?>privatno/operateri/index.php">Operateri</a></li>
+          
         </ul>
       </li>
       <?php endif; ?>
@@ -47,14 +50,18 @@
     	<?php if($_SERVER["SCRIPT_NAME"]!=$putanjaAPP . "javno/login.php"): ?>
       <li style="width: 100%;">
       	<?php if(!isset($_SESSION["logiran"])): ?>
-      	<a href="<?php echo 	$putanjaAPP;  ?>javno/login.php" class="button" >Login</a>
+      	<a href="<?php echo $putanjaAPP;  ?>javno/login.php" class="button" >Login</a>
       	<?php else: ?>
       	<a href="<?php echo $putanjaAPP;  ?>javno/logout.php" class="alert button">Logout
       		<?php       		
       			echo $_SESSION["logiran"]->ime . " " . $_SESSION["logiran"]->prezime; ?></a>
       		<?php endif; ?>
       	</li>
-      	<?php endif; ?>
+      	<?php elseif($_SERVER["SCRIPT_NAME"]=$putanjaAPP . "javno/login.php") : ?>
+      	<li style="width: 100%;">
+      		<a href="<?php echo $putanjaAPP;  ?>javno/registracija.php" class="button" >Registracija</a>   	
+      	</li>
+		<?php endif; ?>
     </ul>
   </div>
 </div>

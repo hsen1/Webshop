@@ -5,6 +5,8 @@ include_once 'funkcije.php';
 
 $naslovAplikacije = "Webshop APP V1";
 
+$rezultataPoStranici=10;
+
 switch ($_SERVER["HTTP_HOST"]) {
 	case 'localhost':
 		$putanjaAPP="/webshop/";

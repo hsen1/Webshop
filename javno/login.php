@@ -29,17 +29,29 @@
 							
 							<form method="post" action="<?php echo $putanjaAPP;  ?>autorizacija.php">
 								<label for="korisnik">Korisnik</label>
-								<input type="text" name="korisnik" id="korisnik" placeholder="hrvojesen@gmail.com" 
+								<input type="text" name="korisnik" id="korisnik" placeholder="email" 
 								value="<?php echo isset($_GET["korisnik"]) ? $_GET["korisnik"] : ""; ?>"/>
 								<label for="lozinka">Lozinka</label>
-								<input type="password" name="lozinka" id="lozinka" placeholder="hrvoje"/>
+								<input type="password" name="lozinka" id="lozinka" placeholder="lozinka"/>
 								<input type="submit" class="button expanded" value="Prijava" />
 							</form>
-							
+			
 							</div>
+							<ul class="ul" align="center">
+								<li>Admin </li>
+								<li>hrvojesen@gmail.com</li>
+								<li>hrvoje</li>
+								<li>Operater</li>
+								<li>ivanivic@gmail.com</li>
+								<li>ivan</li>
+								<li>Kupac</li>
+								<li>kupac1@gmail.com</li>
+								<li>kupac1</li>
+							</ul>
 						</div>
 					</div>
 				</div>
+				
 			</div>
 		<?php   include_once '../predlosci/podnozje.php'; ?>
 		<?php	include_once '../predlosci/skripte.php'; ?>

@@ -15,7 +15,7 @@ if(isset($_POST["sifra"])){
 		$uvjet=$_POST["uvjet"];
 		unset($_POST["uvjet"]);
 	}
-	$izraz=$veza->prepare("update kupac set ime=:ime, prezime=:prezime, naziv=:naziv, oib=:oib, email=:email, lozinka=md5(:lozinka),
+	$izraz=$veza->prepare("update kupac set ime=:ime, prezime=:prezime, email=:email, lozinka=md5(:lozinka),
 							adresa=:adresa, mjesto=:mjesto, postanskiBroj=:postanskiBroj where sifra=:sifra");
 	$izraz->execute($_POST);
 	header("location: index.php?uvjet=" . $uvjet);
@@ -30,7 +30,7 @@ if(isset($_POST["sifra"])){
 		<?php include_once '../../predlosci/izbornik.php'; ?>
 		<div class="row">
 			<div class="grid-x grid-padding-x">
-				<div class="large-4 large-offset-4">
+				<div class="cell large-4 large-offset-4">
 					<form method="POST">
 						<fieldset class="fieldset">
 							<legend>Uneseni podaci</legend>
@@ -40,12 +40,6 @@ if(isset($_POST["sifra"])){
 							
 							<label for="prezime">Prezime</label>
 							<input name="prezime" id="prezime" value="<?php echo $kupac->prezime; ?>" type="text" />
-													
-							<label for="naziv">Naziv</label>
-							<input name="naziv" id="naziv" value="<?php echo $kupac->naziv; ?>" type="text" />
-							
-							<label id="oib">OIB</label>
-							<input name="oib" id="oib" value="<?php echo $kupac->oib; ?>" type="number" />
 							
 							<label for="email">Email</label>
 							<input name="email" id="email" value="<?php echo $kupac->email; ?>" type="text" />

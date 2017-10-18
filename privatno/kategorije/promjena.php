@@ -30,13 +30,13 @@ if(isset($_POST["sifra"])){
 		<?php include_once '../../predlosci/izbornik.php'; ?>
 		<div class="row">
 			<div class="grid-x grid-padding-x">
-				<div class="large-4 large-offset-4">
+				<div class="cell large-4 large-offset-4">
 					<form method="POST">
 						<fieldset class="fieldset">
 							<legend>Uneseni podaci</legend>
 							
-							<label id="lnaziv" for="naziv">Naziv</label>
-							<input 	name="naziv" id="naziv" value="<?php echo $kategorija->naziv; ?>" type="text" />
+							<label for="naziv">Naziv</label>
+							<input name="naziv" id="naziv" value="<?php echo $kategorija->naziv; ?>" type="text" />
 							
 							<label for="slika">Slika</label>
 							<input name="slika" id="slika" value="<?php echo $kategorija->slika; ?>" type="text" />
